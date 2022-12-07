@@ -44,5 +44,5 @@ export default createTheme({
     lightdark3: '#444444',
     green: '#4ca146',
   },
-  typography: themeTypography(),
+  
 });

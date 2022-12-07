@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import dotenv from 'dotenv';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import './App.css';
 
