@@ -7,52 +7,68 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Testimonial from './Testimonial';
 import testimonialdata from '../../utils/testimonialdata';
-
+import menudata from '../../utils/menudata';
+import Homemenuitem from './Homemenuitem'
+import '../../App.css'
 const useStyles = makeStyles((theme) => ({
   testimonial_section: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    paddingBottom: '50px',
+    // paddingBottom: '50px',
   },
   testimonial_control: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 70px',
-    '@media (max-width: 1050px)': {
-      display: 'none',
-    },
+    margin: '0px',
+   
   },
   testimonial_control_icon: {
-    color: 'lightgray',
+    color: 'black',
+   
   },
   leaderBoard_left_h1: {
-    lineHeight: '40px',
     fontFamily: 'Inter, sans-serif',
-    fontSize: '1.8rem',
+    fontSize: '3rem',
     fontWeight: 'bold',
-    marginTop: '17px',
-    marginBottom: '20px',
-  },
-  testimonial_heading: {
-    fontFamily: 'Inter, sans-serif',
-    fontWeight: 'bold',
-    fontSize: '1rem',
-  },
-  homemenu_explore: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: '30px 0',
-  },
-  newClass: {
-    width: '700px',
-    '@media (max-width: 750px)': {
-      maxWidth: '250px',
+    marginTop: '50px',
+    textAlign: 'center',
+    color:'#202794',
+    '@media (max-width: 500px)': {
+      fontSize: '2.5rem',
     },
   },
+  // testimonial_heading: {
+  //   fontFamily: 'Inter, sans-serif',
+  //   fontWeight: 'bold',
+  //   fontSize: '1rem',
+  // },
+  // homemenu_explore: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   alignItems: 'center',
+   
+  // },
+  newClass: {
+    margin:'20px',
+    width: '900px',
+    '@media (max-width: 900px)': {
+      maxWidth: '350px',
+      margin:'10px',
+    },
+  },
+  // homemenu_data: {
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   marginBottom: '30px',
+  //   flexWrap: 'wrap',
+  //   // paddingTop: '30px',
+  //   '@media (max-width: 500px)': {
+  //     paddingTop: '0px',
+  //   },
+  // },
 }));
 
 export default function Testimonialsection() {
@@ -63,27 +79,26 @@ export default function Testimonialsection() {
     leaderBoard_left_h1,
     testimonial_heading,
     homemenu_explore,
+    homemenu_data,
     newClass,
   } = useStyles();
   const control = useRef(null);
   return (
     <div className={testimonial_section}>
       <div className={homemenu_explore}>
-        <Typography className={testimonial_heading} component="h1">
-          Testimonial
-        </Typography>
         <Typography className={leaderBoard_left_h1} variant="h2" component="h1">
-          What they saying
+          Наши лучшие блюда
         </Typography>
       </div>
       <div style={{ display: 'flex' }}>
-        <div className={testimonial_control}>
+        <div className={testimonial_control}> 
           <ArrowBackIosIcon
             onClick={() => control.current.prev()}
             className={testimonial_control_icon}
-          />
-        </div>
+          /> 
+         </div>
         <OwlCarousel
+          
           autoplayHoverPause={false}
           animateOut="fadeOut"
           loop={true}
@@ -92,26 +107,28 @@ export default function Testimonialsection() {
           ref={control}
           dots={true}
           nav={false}
-          items={1}
+          items={3}
           className={`owl-theme ${newClass}`}
           responsive={{
             0: {
-              items: 1,
+              items: 3,
             },
             1000: {
-              items: 1,
+              items: 3,
             },
             1276: {
-              items: 1,
+              items: 3
             },
           }}
           margin={10}
           center={true}
         >
-          {testimonialdata.map((data, index) => (
-            <div key={index} className="item">
-              <Testimonial {...data} />
-            </div>
+          {menudata.map((data, index) => (
+           <div key={index} className="item">
+            
+           <Homemenuitem key={index} {...data} />
+          
+         </div>
           ))}
         </OwlCarousel>
         <div className={testimonial_control}>

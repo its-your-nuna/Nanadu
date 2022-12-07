@@ -5,6 +5,7 @@
   /* border: 1px solid red;
 */
 }
+
 /* custom scrollbar */
 .customscroll {
   height: 100%;
@@ -33,7 +34,7 @@
 }
 
 .owl-dot.active span {
-  background: #fcc82b !important;
+  background: #f93b1d !important;
 }
 .owl-dot span {
   background: lightgray !important;
@@ -43,22 +44,41 @@
   margin-right: 2px !important;
 }
 
-.owl-theme .owl-nav.disabled + .owl-dots {
+/* .owl-theme .owl-nav.disabled + .owl-dots {
   margin-top: 10px;
   position: absolute;
   top: -40px;
   left: 40%;
+} */
+@media (max-width: 900px) {
+.owl-theme .owl-nav.disabled + .owl-dots {
+  display: block;
+  
 }
-
-@media (max-width: 750px) {
+}
+/* @media (max-width: 750px) {
   .owl-dot span {
     width: 40px !important;
   }
   .owl-theme .owl-nav.disabled + .owl-dots {
-    left: 28%;
+    left: 7vw;
   }
 }
+@media (max-width: 900px) {
+  .owl-dot span {
+    width: 40px !important;
+  }
+  .owl-theme .owl-nav.disabled + .owl-dots {
+    left: 10%;
+  }
+} */
 
 .ppp {
   color: red;
+}
+
+a:focus{
+  text-decoration: none;
+  color: #202794;
+  outline: 0;
 }

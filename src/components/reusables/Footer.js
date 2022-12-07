@@ -1,23 +1,83 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Box, Typography, makeStyles, Paper } from '@material-ui/core';
+import { Box,styled,List, Typography, makeStyles, Paper} from '@material-ui/core';
 import { FcPodiumWithAudience } from 'react-icons/fc';
+import { NavLink } from 'react-router-dom';
+import { Instagram, WhatsApp } from '@material-ui/icons';
+import { IconBrandGmail, IconBrandInstagram, IconBrandWhatsapp } from '@tabler/icons';
 
+const links = [
+  {
+    label: 'Главная',
+    href: '/',
+  },
+  {
+    label: 'Меню',
+    href: '/allmeals',
+  },
+  {
+    label: 'Рестораны',
+    href: '/restorants',
+  },
+  {
+    label: 'О нас',
+    href: '/about',
+  },
+  {
+    label: 'Сотрудничество',
+    href: '/form',
+  },
+];
+const links2 = [
+  {
+    label: 'Улица 1',
+    href: '/',
+  },
+  {
+    label: 'Улица 2',
+    href: '/allmeals',
+  },
+  
+];
+const links3 = [
+  {
+    label: <IconBrandInstagram style={ {marginLeft:'0px',
+    cursor:'pointer',
+    fontSize:'24px'}}/>,
+    href: '/',
+  },
+  {
+    label: <IconBrandWhatsapp style={ {marginLeft:'20px',
+    cursor:'pointer',
+    fontSize:'24px'}}/>,
+    href: '/allmeals',
+  },
+  {
+    label: <IconBrandGmail
+    style={ {marginLeft:'20px',
+    cursor:'pointer',
+    fontSize:'24px'}}/>,
+    href: '/allmeals',
+  },
+  
+];
+
+
+
+const ListStyle = styled(List)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+}));
 const useStyles = makeStyles({
   root: (props) => ({
-    display: props.pathname === '/login' ? 'none' : 'flex',
-    minHeight: '200px',
+    display:'flex',
     alignItems: 'center',
     backgroundPosition: 'right',
-    backgroundImage:
-      'url(https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-yellow-blob-shape.svg)',
-    objectFit: 'right right',
-    backgroundRepeat: 'no-repeat',
-    fontFamily: 'Poppins, sans-serif',
-    padding: '20px calc((100vw - 1100px) / 2)',
+    justifyContent: 'center',
+    marginTop:'50px',
 
+  
     '@media screen and (max-width: 759px) ': {
-      flexDirection: 'column',
+      flexDirection: 'flex-wrap',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -55,60 +115,102 @@ const useStyles = makeStyles({
     },
   },
   root_right: {
-    '& > :nth-child(1)': {
-      fontFamily: 'Poppins, sans-serif',
-      fontSize: '1.3rem',
-      fontWeight: '500',
-      marginTop: '0px',
-      '@media screen and (max-width: 30em)': {
-        marginTop: '25px',
-      },
+    width:'200px',
+    height:'250px',
+    
+  },
+  leaderBoard_left_h1: {
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    marginTop: '50px',
+    color:'black',
+    '@media (max-width: 900px)': {
+      fontSize: '1.5rem',
+    },
+  },
+  about_descriptions: {
+   
+    fontFamily: 'Inter, sans-serif',
+    color:'black',
+    fontSize: '1.5rem',
+    marginTop: '10px',
+    fontWeight: 'bold',
+    '@media (max-width: 900px)': {
+      fontSize: '1.2rem',
     },
   },
 });
 
 export default function Footer() {
   const location = useLocation();
-  const { root, root_left, root_right, recommendation_link } = useStyles(
+  const { root, about_descriptions,leaderBoard_left_h1, root_right, recommendation_link } = useStyles(
     location
   );
   return (
     <Paper className={root}>
-      <Box className={root_left}>
-        <Box>
-          <FcPodiumWithAudience size={35} /> <span>Theomeals</span>
+     
+      <Box className={root_right}>
+        <Typography className={leaderBoard_left_h1}
+            >Страницы</Typography>
+        <Box display="flex" flexDirection="column">        
+        {links.map((link, index) => (
+          <Link
+            key={index}
+            className={about_descriptions}
+            component={NavLink}
+            to={link.href}
+            underline = 'hover'
+            onClick = { ()=>{handleClick(index);}}
+            
+          >
+            {link.label}
+          </Link>
+        ))}
+ 
+
+         
         </Box>
-        <Typography width={{ 'sm': '100%', 'md': '70%' }}>
-          Thank you for trusting us with your meals. We do hope you enjoy our
-          dishes
-        </Typography>
       </Box>
       <Box className={root_right}>
-        <Typography>Links</Typography>
-        <Box display="flex" flexDirection="column">
-          <Typography
-            component={Link}
-            to="/"
-            style={{
-              marginTop: '10px',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
+        <Typography className={leaderBoard_left_h1}>Наши рестораны</Typography>
+        <Box display="flex" flexDirection="column">        
+        {links2.map((link, index) => (
+          <Link
+          className={about_descriptions}
+            component={NavLink}
+            to={link.href}
+            underline = 'hover'
+            onClick = { ()=>{handleClick(index);}}
+            
           >
-            Home
-          </Typography>
+            {link.label}
+          </Link>
+        ))}
+ 
 
-          <a
-            href="https://myreactprofile.netlify.app/"
-            style={{
-              textDecoration: 'none',
-              color: 'inherit',
-              marginTop: '5px',
-            }}
-            target="_blank"
+         
+        </Box>
+      </Box>
+      <Box className={root_right}>
+        <Typography className={leaderBoard_left_h1}>Наши соц сети</Typography>
+        <Box display="flex" flexDirection="row" justifyContent="space-between">        
+        {links3.map((link, index) => (
+          <Link
+            key={index}
+            className={about_descriptions}
+            component={NavLink}
+            to={link.href}
+            underline = 'hover'
+            onClick = { ()=>{handleClick(index);}}
+            
           >
-            About
-          </a>
+            {link.label}
+          </Link>
+        ))}
+ 
+
+         
         </Box>
       </Box>
     </Paper>

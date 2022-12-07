@@ -10,22 +10,37 @@ import {
   styled,
   makeStyles,
   Typography,
+  Link,
 } from '@material-ui/core';
+import { CloseRounded } from '@material-ui/icons';
 
-import { BiHomeCircle } from 'react-icons/bi';
-import { IoFastFood } from 'react-icons/io5';
-import { MdContacts } from 'react-icons/md';
-import { AiOutlineUser } from 'react-icons/ai';
+// import { BiHomeCircle } from 'react-icons/bi';
+// import { IoFastFood } from 'react-icons/io5';
+// import { MdContacts } from 'react-icons/md';
+// import { AiOutlineUser } from 'react-icons/ai';
 
 // links for the side nav
 const links = [
   {
-    id: 'L0',
-    path: '/',
-    icon: <BiHomeCircle />,
-    title: 'Home',
+    label: 'Главная',
+    href: '/',
   },
-  { id: 'L1', path: '/allmeals', icon: <IoFastFood />, title: 'All Meals' },
+  {
+    label: 'Меню',
+    href: '/allmeals',
+  },
+  {
+    label: 'Рестораны',
+    href: '/restorants',
+  },
+  {
+    label: 'О нас',
+    href: '/about',
+  },
+  {
+    label: 'Сотрудничество',
+    href: '/form',
+  },
 ];
 
 // style const
@@ -48,37 +63,58 @@ const useStyles = makeStyles((theme) => ({
     color: '#1275D1',
   },
   button: {
+    
+    fontFamily: 'Mulish, sans-serif',
+    fontWeight: 600,
     borderRadius: '0',
     padding: '10px 8px 10px 20px',
+    fontSize:'24px',
     display: 'flex',
     justifyContent: 'flex-start',
     textTransform: 'capitalize',
     background: 'transparent',
-    color: 'rgb(99, 115, 129)',
-    alignItems: 'left',
+    color: 'black',
     width: '280px',
-
+    textDecoration: 'none',
     '&:hover': {
-      color: '#1275D1',
-      background: '#E2ECF6',
+      textDecoration: 'none',
+      color:'black'
+    },
+  },
+  button2: {
+    
+    fontFamily: 'Mulish, sans-serif',
+    fontWeight: 600,
+    borderRadius: '0',
+    padding: '10px 8px 10px 20px',
+    fontSize:'24px',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    textTransform: 'capitalize',
+    background: 'transparent',
+    textDecoration:'none',
+    color:'#202794',
+    borderBottom: '3px #ff3e19 solid',
+    '&:hover': {
+      textDecoration: 'none',
+      color:'#202794',
+     
     },
   },
   usersection: {
-    background: 'rgb(223, 223, 223)',
+   
     display: 'flex',
+    flexDirection:'column',
+    justifyContent:'center',
     alignItems: 'center',
-    paddingLeft: '20px',
-    width: '90%',
-    height: '60px',
     margin: '0 auto',
     borderRadius: '15px',
-    marginTop: '15px',
-
-    '& h2': {
-      marginLeft: '10px',
-      fontSize: '1rem',
-    },
   },
+  xmark:{
+    marginLeft:'200px',
+    cursor:'pointer',
+    fontSize:'24px'
+  }
 }));
 
 const ListStyle = styled(List)(({ theme }) => ({
@@ -86,62 +122,49 @@ const ListStyle = styled(List)(({ theme }) => ({
 }));
 
 export default function Sidedrawer(props) {
-  const { label, drawerheading, button, usersection, selected } = useStyles();
+  const { xmark, button,button2, usersection, selected } = useStyles();
   const auth = useSelector((state) => state.authReducer);
 
   const userData = () => {
     return (
+     
       <Box className={usersection}>
-        <Avatar sx={{ width: 60, height: 60 }} alt="John Doe">
-          <AiOutlineUser />
-        </Avatar>
-        <Typography component="h2">
-          {auth.authenticated ? auth.user.firstName : 'John Doe'}
-        </Typography>
+         <CloseRounded
+         onClick={props.onClose} className = {xmark}/>
+         {/* <i class="fa-solid fa-xmark"></i>
+          */}
+         <img src='nandu.png' width='100px'/>
       </Box>
     );
   };
+  const [myStyle, setMyStyle] = React.useState({});
+
+  const handleClick = (id) => {
+    console.log(myStyle)
+    setMyStyle((prevState) => ({
+      [id]: !prevState[id]
+    }));
+  };
   return (
     <>
-      <Toolbar>
-        <Typography className={drawerheading} variant="h6" component="h2">
-          Hello
-        </Typography>
-      </Toolbar>
+     
       {userData()}
       {/* List of links */}
       <ListStyle>
         {links.map((link, index) => (
-          <Button
+          <Link
             key={index}
-            classes={{ startIcon: label }}
-            end="true"
-            disableElevation
-            className={button}
-            variant="contained"
-            autoCapitalize="none"
-            startIcon={link.icon}
+            className={myStyle[index]?button2:button}
             component={NavLink}
-            to={link.path}
-            onClick={props.onClose}
+            to={link.href}
+            underline = 'none'
+            onClick = { ()=>{handleClick(index);}}
+            
           >
-            {link.title}
-          </Button>
+            {link.label}
+          </Link>
         ))}
-        <Button
-          classes={{ startIcon: label }}
-          end="true"
-          disableElevation
-          className={button}
-          variant="contained"
-          autoCapitalize="none"
-          startIcon={<MdContacts />}
-          onClick={() =>
-            (location.href = 'https://myreactprofile.netlify.app/')
-          }
-        >
-          About Me
-        </Button>
+       
       </ListStyle>
     </>
   );

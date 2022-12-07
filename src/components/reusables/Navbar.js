@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import '../../App.css'
 import {
   AppBar,
   Toolbar,
@@ -21,13 +22,26 @@ import CartSection from '../layout/MainLayout/Header/CartSection.js';
 
 const headersData = (path) => [
   {
-    label: 'Home',
+    label: 'Главная',
     href: '/',
   },
   {
-    label: 'Meals',
+    label: 'Меню',
     href: '/allmeals',
   },
+  {
+    label: 'Рестораны',
+    href: '/restorants',
+  },
+  {
+    label: 'О нас',
+    href: '/about',
+  },
+  {
+    label: 'Сотрудничество',
+    href: '/form',
+  },
+
 ];
 
 const useStyles = makeStyles({
@@ -37,30 +51,61 @@ const useStyles = makeStyles({
     display: props.pathname === '/login' ? 'none' : 'block',
     top: 0,
     left: 0,
-    paddingTop: '5px',
-    paddingBottom: '5px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
     paddingRight: '79px',
-    paddingLeft: '98px',
+    paddingLeft: '0px',
     '@media (max-width: 900px)': {
       paddingLeft: 0,
     },
   }),
   logo: {
-    fontFamily: 'Mulish, sans-serif',
-    fontWeight: 600,
-    color: 'black',
-    textAlign: 'left',
-    fontSize: '1.4rem',
+    position:'absolute',
+    top:'-15px',
+    left:'30%',
+    // left:'100px',
+    width:'90px',
+    '@media (max-width: 1500px)': {
+      left: '25%',
+    },
+    '@media (max-width: 1400px)': {
+      left: '15%',
+    },
+    '@media (max-width: 900px)': {
+      left: '40vw',
+    },
   },
   menuButton: {
-    fontWeight: 'bold',
-    size: '18px',
+    color:'black',
+    fontFamily: 'Mulish, sans-serif',
+    fontWeight: 600,
+    fontSize: '17px',
+    marginLeft: '30px',
+    textTransform: 'capitalize', 
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+      color:'inherit'
+    },
+  },
+  menuButton2: {
+    color:'#202794',
+    fontFamily: 'Mulish, sans-serif',
+    fontSize: '17px',
+    fontWeight: 600,
     marginLeft: '20px',
-    textTransform: 'capitalize',
+    textTransform: 'capitalize', 
+    textDecoration: 'none',
+    borderBottom: '3px #ff3e19 solid',
+    '&:hover': {
+      textDecoration: 'none',
+      color:'#202794',
+    },
   },
   toolbar: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+   
   },
   drawerContainer: {
     padding: '5px 0px',
@@ -69,27 +114,28 @@ const useStyles = makeStyles({
   logButtons: {
     display: 'flex',
   },
-  signinButton: {
-    borderRadius: '20px',
-    textTransform: 'capitalize',
-    fontWeight: 'bold',
-  },
-  loginButton: {
-    fontWeight: 'bold',
-    marginLeft: '20px',
-    borderRadius: '20px',
-    backgroundColor: 'white',
-    textTransform: 'capitalize',
-  },
-  spacerLogo: {
-    visibility: 'hidden',
-    width: 'calc(100vw - 206px)',
-    border: '1px solid red',
-    marginRight: '-25px',
-  },
-  personIcon: {
-    marginRight: '6px',
-  },
+
+  // signinButton: {
+  //   borderRadius: '20px',
+  //   textTransform: 'capitalize',
+  //   fontWeight: 'bold',
+  // },
+  // loginButton: {
+  //   fontWeight: 'bold',
+  //   marginLeft: '20px',
+  //   borderRadius: '20px',
+  //   backgroundColor: 'white',
+  //   textTransform: 'capitalize',
+  // },
+  // spacerLogo: {
+  //   visibility: 'hidden',
+  //   width: 'calc(100vw - 206px)',
+  //   border: '1px solid red',
+  //   marginRight: '-25px',
+  // },
+  // personIcon: {
+  //   marginRight: '6px',
+  // },
 });
 
 export default function Navbar() {
@@ -100,6 +146,7 @@ export default function Navbar() {
     header,
     logo,
     menuButton,
+    menuButton2,
     toolbar,
     drawerContainer,
     logButtons,
@@ -131,15 +178,18 @@ export default function Navbar() {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
+       
+        <div>
         {femmecubatorLogo}
-        <div>{getMenuButtons()}</div>
-        <div className={logButtons}>
-          <div>
-            <Profile />
-            <CartSection />
-            {/* {auth.authenticated && <Notification />} */}
+          {getMenuButtons()}
           </div>
-        </div>
+        {/* <div className={logButtons}>
+          <div> */}
+            {/* <Profile />
+            <CartSection /> */}
+            {/* {auth.authenticated && <Notification />} */}
+          {/* </div> */}
+        {/* // </div> */}
       </Toolbar>
     );
   };
@@ -188,46 +238,56 @@ export default function Navbar() {
         </Box>
 
         <Box>
-          <Profile />
+         
           <CartSection />
           {/* {auth.authenticated && <Notification />} */}
         </Box>
       </Toolbar>
     );
   };
-
+  /**Logo */
   const femmecubatorLogo = (
     <Link
       {...{
         component: RouterLink,
         to: '/',
+        underline:'none',
         color: 'inherit',
         style: { textDecoration: 'none' },
       }}
-      className={logo}
+      
     >
-      Theomeals
+      <img className={logo} src='nandu.png' />
     </Link>
   );
+  const [myStyle, setMyStyle] = React.useState({});
 
+  const handleClick = (id) => {
+    console.log(myStyle)
+    setMyStyle((prevState) => ({
+      [id]: !prevState[id]
+    }));
+  };
   const getMenuButtons = () => {
     const { pathname } = useLocation();
-
+    
     return headersData(pathname).map(({ label, href }, index) => {
       return (
-        <Button
+        <Link
+          
           key={index}
-          {...{
+          onClick = { ()=>handleClick(index)}
+          {...{   
             key: label,
-            color: 'inherit',
             to: href,
+            underline:'none',
             component: RouterLink,
-            className: menuButton,
+            className: myStyle[index]?menuButton2:menuButton,
           }}
-          state={{ from: pathname, show: 'login' }}
+          // state={{ from: pathname, show: 'login' }}
         >
           {label}
-        </Button>
+        </Link>
       );
     });
   };

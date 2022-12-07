@@ -6,47 +6,43 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 const useStyles = makeStyles((theme) => ({
   about_section: {
     display: 'flex',
-    width: '100%',
-    minHeight: '70vh',
-    height: 'max-content',
-    background: "url('foodnapkin.jpg')",
-    backgroundRepeat: 'no-repeat',
-    objectFit: 'contain',
-    backgroundPosition: '-200px',
-    backgroundSize: '800px',
-    paddingRight: '79px',
-    paddingLeft: '118px',
-    '@media (max-width: 750px)': {
-      padding: '20px 20px',
-      backgroundPosition: '-650px',
-    },
+    flexDirection:'row',
+   
+    // minHeight: '70vh',
+    justifyContent:'center',
+    marginTop:'50px'
+    // height: 'max-content',
+    // background: "url('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/certificate-of-participation-portrait-design-template-a8ffff6f74ebe4d689560dbe066476d3_screen.jpg?ts=1636984015')",
+    // backgroundRepeat: 'no-repeat',
+    // objectFit: 'contain',
+    // backgroundPosition: '0px',
+    // backgroundSize: '300px',
+   
+    // '@media (max-width: 750px)': {
+     
+    //   backgroundPosition: '-10px',
+    // },
   },
-  about_section_left: {
-    width: '50%',
+  about_image:{
+    marginRight:'50px',
+    height: '450px',
+    width: '350px',
     '@media (max-width: 900px)': {
-      width: '30%',
-    },
-    '@media (max-width: 750px)': {
-      width: '0%',
+     width:'180px',
+     height:'250px'
     },
   },
-  about_section_right: {
-    width: '50%',
-    display: 'block',
-    padding: '30px 70px',
-    '@media (max-width: 900px)': {
-      padding: '30px 0px',
-      width: '70%',
-    },
-    '@media (max-width: 750px)': {
-      width: '100%',
-    },
-  },
+
   about_title: {
-    fontWeight: 'bold',
     fontFamily: 'Inter, sans-serif',
-    fontSize: '1rem',
-    marginBottom: '20px',
+    fontSize: '3rem',
+    fontWeight: 'bold',
+    marginTop: '50px',
+    textAlign: 'center',
+    color:'#202794',
+    '@media (max-width: 500px)': {
+      fontSize: '2.5rem',
+    },
   },
   button: {
     borderRadius: '20px',
@@ -55,14 +51,27 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'lowercase',
   },
   leaderBoard_left_h1: {
-    lineHeight: '40px',
     fontFamily: 'Inter, sans-serif',
-    fontSize: '2.2rem',
+    fontSize: '3rem',
     fontWeight: 'bold',
+    marginTop: '50px',
+    color:'black',
+    '@media (max-width: 900px)': {
+      fontSize: '2rem',
+    },
+    
+    
   },
   about_descriptions: {
+    width:'40vw',
     fontFamily: 'Inter, sans-serif',
-    marginTop: '15px',
+    color:'grey',
+    fontSize: '1.5rem',
+    marginTop: '25px',
+    fontWeight: 'bold',
+    '@media (max-width: 900px)': {
+      fontSize: '1.2rem',
+    },
   },
 }));
 
@@ -74,24 +83,26 @@ export default function AboutSection() {
     leaderBoard_left_h1,
     about_title,
     button,
+    about_image,
     about_descriptions,
   } = useStyles();
   return (
-    <div className={about_section}>
+    <div >
+      <Typography className={about_title} component="h1">
+          Сертификаты
+        </Typography>
+        <div className={about_section}>
+      <img className={about_image}  src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/certificate-of-participation-portrait-design-template-a8ffff6f74ebe4d689560dbe066476d3_screen.jpg?ts=1636984015'/>
       <div className={about_section_left}></div>
       <div className={about_section_right}>
-        <Typography className={about_title} component="h1">
-          About
-        </Typography>
+        
         <Typography className={leaderBoard_left_h1} variant="h2" component="h1">
-          We are the best quality <br /> restaurant
+        Мы очень горды, 
         </Typography>
         <Typography className={about_descriptions} component="p">
-          Restaurant in Nigeria sourcing our ingredient locally, to celebrate
-          lifes special moments by offering the best food, service and ambience
-          in every home
+        что сеть «Korean Street Food»-это казахстанская сеть общественного питания! Наша сеть имеет запатентованный зарегистрированный товарный знак. 
         </Typography>
-        <Typography className={about_descriptions} component="p">
+        {/* <Typography className={about_descriptions} component="p">
           If you want any food please login or sign up on our mobile app or
           website
         </Typography>
@@ -106,7 +117,9 @@ export default function AboutSection() {
           to={'/allmeals'}
         >
           our menu
-        </Button>
+        </Button> */}
+        
+      </div>
       </div>
     </div>
   );

@@ -4,20 +4,28 @@ import { Typography, makeStyles, Button } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   home_menu_item: {
     border: '1px solid #F2F2F2',
-    height: '250px',
-    width: '200px',
+    height: '350px',
+    width: '250px',
     borderRadius: '10px',
     position: 'relative',
     cursor: 'pointer',
     padding: '7px',
-    marginRight: '20px',
-    marginTop: '20px',
+    // marginRight: '20px',
+    marginTop: '50px',
     transition: 'all 0.6s ease-in-out',
     '&:hover': {
-      background: theme.palette.primary.main,
+      background: '#f93b1d',
       '& button': {
         background: 'white',
+        color:'black'
       },
+    },
+    '@media (max-width: 900px)': {
+      // padding: '2px',
+      // marginRight: '0px',
+      // marginTop: '20px',
+      height: '200px',
+      width: '100px',
     },
   },
   hmi_img_div: {
@@ -25,8 +33,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   hmi_img: {
-    height: '100px',
-    width: '100px',
+    height: '200px',
+    width: '200px',
+    '@media (max-width: 900px)': {
+      height: '80px',
+      width: '60px',
+    },
   },
   hmi_food_title: {
     fontFamily: 'Inter, sans-serif',
@@ -49,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Inter, sans-serif',
     fontSize: '.7rem',
     fontWeight: 'bold',
-    color: 'red',
+    color: 'black',
     marginTop: '4px',
   },
   cart_button: {
@@ -59,13 +71,23 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     borderRadius: '7px',
     height: '30px',
+    backgroundColor:'#f93b1d',
+    color:'white',
+    '@media (max-width: 900px)': {
+      marginTop: '2px',
+      height: '20px',
+    },
   },
   lower_div: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '35px',
+    height: '30px',
     marginTop: '20px',
+    '@media (max-width: 900px)': {
+      marginTop: '10px',
+      flexDirection:'column'
+    },
   },
 }));
 
@@ -92,7 +114,7 @@ export default function Homemenuitem({
       <div className={hmi_img_div}>
         <img className={hmi_img} src={image_path} />
       </div>
-      <Typography className={hmi_food_title} variant="h2" component="h1">
+      <Typography  className={hmi_food_title} variant="h2" component="h1">
         {title}
       </Typography>
       <Typography className={hmi_food_subtitle} variant="h2" component="h1">
@@ -107,8 +129,7 @@ export default function Homemenuitem({
         </Typography>
         <Button
           disableElevation={true}
-          color="primary"
-          variant="contained"
+          
           className={cart_button}
         >
           New

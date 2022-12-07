@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
 import { Typography, makeStyles, Button } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { Link } from 'react-router-dom';
 import Homemenuitem from './Homemenuitem';
 import menudata from '../../utils/menudata';
-
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+const contentStyle = {
+  margin: 0,
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
 const useStyles = makeStyles((theme) => ({
+  testimonial_control: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 70px',
+    '@media (max-width: 1050px)': {
+      display: 'none',
+    },
+  },
+  testimonial_control_icon: {
+    color: 'lightgray',
+  },
   homemenu: {
     //padding: '50px 0px',
     paddingBottom: '50px',
@@ -19,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   leaderBoard_left_h1: {
     lineHeight: '40px',
     fontFamily: 'Inter, sans-serif',
-    fontSize: '1.8rem',
+    fontSize: '4rem',
     fontWeight: 'bold',
     marginTop: '17px',
     textAlign: 'center',
@@ -56,7 +81,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Homemenu() {
+  const onChange = (currentSlide) => {
+    console.log(currentSlide);
+  };
   const {
+    testimonial_control,
+    testimonial_control_icon,
     leaderBoard_left_h1,
     homemenu_menu,
     homemenu_explore,
@@ -64,21 +94,66 @@ export default function Homemenu() {
     button,
     homemenu_data,
   } = useStyles();
+  const control = useRef(null);
   return (
+    
     <div className={homemenu}>
       <div className={homemenu_explore}>
-        <Typography className={homemenu_menu} component="h1">
-          Menu
-        </Typography>
+      
         <Typography className={leaderBoard_left_h1} variant="h2" component="h1">
-          Our Best Selling Meals
+          Наши лучшие блюда
         </Typography>
       </div>
 
-      <div className={homemenu_data}>
+      {/* <div className={homemenu_data}>
         {menudata.map((data, index) => (
           <Homemenuitem key={index} {...data} />
         ))}
+      </div> */}
+       <div style={{ display: 'flex' }}>
+        <div className={testimonial_control}>
+          <ArrowBackIosIcon
+            onClick={() => control.current.prev()}
+            className={testimonial_control_icon}
+          />
+        </div>
+      <OwlCarousel
+          autoplayHoverPause={false}
+          animateOut="fadeOut"
+          loop={true}
+          smartSpeed={1000}
+          autoPlay={true}
+          ref={control}
+          dots={true}
+          nav={false}
+          items={1}
+          // className={`owl-theme ${newClass}`}
+          responsive={{
+            0: {
+              items: 1,
+            },
+            1000: {
+              items: 1,
+            },
+            1276: {
+              items: 1,
+            },
+          }}
+          margin={10}
+          center={true}
+        >
+          {menudata.map((data, index) => (
+            <div key={index} className="item">
+              <Homemenuitem key={index} {...data} />
+            </div>
+          ))}
+        </OwlCarousel>
+        <div className={testimonial_control}>
+          <ArrowForwardIosIcon
+            onClick={() => control.current.next()}
+            className={testimonial_control_icon}
+          />
+        </div>
       </div>
       <Button
         disableElevation
