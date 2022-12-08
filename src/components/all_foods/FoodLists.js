@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Menu from './Menu';
 import Categories from './Categories';
 import items from './data';
-import { Typography, makeStyles, Button } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
 
 const allCategories = [...new Set(items.map(item => item.category))];
 const useStyles = makeStyles((theme) => ({

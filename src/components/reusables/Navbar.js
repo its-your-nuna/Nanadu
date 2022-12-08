@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import '../../App.css'
+
 import {
   AppBar,
-  Toolbar,
-  Button,
   IconButton,
   Drawer,
   Link,
+  Toolbar,
   Box,
-  makeStyles,
-} from '@material-ui/core';
-
-import MenuIcon from '@material-ui/icons/Menu';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-
-import Notification from '../layout/MainLayout/Header/NotificationSection.js';
-import Profile from '../layout/MainLayout/Header/ProfileSection.js';
 import Sidedrawer from './Sidedrawer.js';
 import CartSection from '../layout/MainLayout/Header/CartSection.js';
 
@@ -46,7 +42,7 @@ const headersData = (path) => [
 
 const useStyles = makeStyles({
   header: (props) => ({
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     position: props.pathname === '/' ? 'absolute' : 'static',
     display: props.pathname === '/login' ? 'none' : 'block',
     top: 0,
@@ -105,7 +101,6 @@ const useStyles = makeStyles({
   toolbar: {
     display: 'flex',
     justifyContent: 'center',
-   
   },
   drawerContainer: {
     padding: '5px 0px',
@@ -183,13 +178,7 @@ export default function Navbar() {
         {femmecubatorLogo}
           {getMenuButtons()}
           </div>
-        {/* <div className={logButtons}>
-          <div> */}
-            {/* <Profile />
-            <CartSection /> */}
-            {/* {auth.authenticated && <Notification />} */}
-          {/* </div> */}
-        {/* // </div> */}
+     
       </Toolbar>
     );
   };
@@ -201,11 +190,10 @@ export default function Navbar() {
       setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
     return (
-      <Toolbar
+      <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-
           width: '100vw',
           marginRight: 0,
         }}
@@ -239,10 +227,10 @@ export default function Navbar() {
 
         <Box>
          
-          <CartSection />
+          {/* <CartSection /> */}
           {/* {auth.authenticated && <Notification />} */}
         </Box>
-      </Toolbar>
+      </div>
     );
   };
   /**Logo */
@@ -277,6 +265,9 @@ export default function Navbar() {
           
           key={index}
           onClick = { ()=>handleClick(index)}
+          sx={{marginLeft:'30px',color:'black','&:hover' : {
+            color : 'black'
+        }}}
           {...{   
             key: label,
             to: href,
@@ -293,10 +284,10 @@ export default function Navbar() {
   };
 
   return (
-    <header>
-      <AppBar elevation={0} className={header}>
+
+      <AppBar sx={{backgroundColor:'white'}} elevation={0} className={header}>
         {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>
-    </header>
+
   );
 }

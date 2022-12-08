@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, makeStyles, Button } from '@material-ui/core';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { Typography, Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Link } from 'react-router-dom';
 import Homemenuitem from '../components/home/Newsmenuitem';
 import menudata from '../utils/newsdata';

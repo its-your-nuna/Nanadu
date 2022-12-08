@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Typography, makeStyles, Button } from '@material-ui/core';
-//import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import AccessTimeFilledIcon from '@material-ui/icons/LocalMall';
-import Food from '@material-ui/icons/LocalMall';
+import { Typography, Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
 
 const useStyles = makeStyles(() => ({
     

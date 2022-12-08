@@ -8,11 +8,11 @@ import {
   List,
   Box,
   styled,
-  makeStyles,
   Typography,
   Link,
-} from '@material-ui/core';
-import { CloseRounded } from '@material-ui/icons';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { CloseRounded } from '@mui/icons-material';
 
 // import { BiHomeCircle } from 'react-icons/bi';
 // import { IoFastFood } from 'react-icons/io5';

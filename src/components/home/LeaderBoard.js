@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Typography, makeStyles, Button } from '@material-ui/core';
+import { Typography, Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 //import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import AccessTimeFilledIcon from '@material-ui/icons/LocalMall';
-import Food from '@material-ui/icons/LocalMall';
+
 
 const useStyles = makeStyles(() => ({
   // header: {
@@ -98,73 +97,45 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function LeaderBoard() {
-  const {
-    leaderBoard,
-    leaderBoard_left,
-    leaderBoard_left_h1,
-    leaderBoard_left_p,
-    button,
-    quicktip,
-    quicktip_text,
-    left,
-    quickTip_container,
-  } = useStyles();
-  const QuickTip = ({ Icon, quicktip_details1, quicktip_details2 }) => (
-    <div className={quicktip}>
-      {Icon}
-      <Typography className={quicktip_text} component="p">
-        {quicktip_details1}
-        <br /> {quicktip_details2}
-      </Typography>
-    </div>
-  );
+  const classes= useStyles();
+ 
 
   return (
     <div>
-      <div className={leaderBoard}>
-        <div className={leaderBoard_left}>
+      <div className={classes.leaderBoard}>
+        <div className={classes.leaderBoard_left}>
           <Typography
-            className={leaderBoard_left_h1}
+            sx = {{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '5rem',
+              fontWeight: 'bold',
+              '@media (max-width: 900px)': {
+                fontSize: '4rem',
+              },
+              '@media (max-width: 500px)': {
+                fontSize: '3rem',
+              },
+            }}
             variant="h2"
             component="h1"
           >
             Ждем вас, дорогие гости! <br /> 
           </Typography>
-          <Typography className={leaderBoard_left_p} component="p">
+          <Typography sx={{
+             fontFamily: 'Inter, sans-serif',
+             marginTop: '20px',
+             fontSize: '2rem',
+             fontWeight: 'bold',
+             '@media (max-width: 900px)': {
+               fontSize: '1.2rem',
+             },
+          }} component="p">
             Сеть "Nandu" с радостью и большим удовольствием познакомит всех желающих с  <br /> 
             удивительной южно-корейской кухней
           </Typography>
-          {/* <Button
-            disableElevation
-            className={button}
-            variant="contained"
-            color="primary"
-            autoCapitalize="none"
-            endIcon={<ArrowRightAltIcon />}
-            component={Link}
-            to={'/allmeals'}
-          >
-            наше меню
-          </Button> */}
-          {/* <div className={quickTip_container}>
-            <QuickTip
-              Icon={<LocalMallIcon />}
-              quicktip_details1="выбери свое любимое блюдо"
-              quicktip_details2="и закажи!"
-            />
-            <QuickTip
-              Icon={<AccessTimeFilledIcon />}
-              quicktip_details1="приходи в любое время!"
-              quicktip_details2="24/7"
-            />
-            <QuickTip
-              Icon={<Food />}
-              quicktip_details1="пробуй с удовольствием"
-              quicktip_details2="у нас все халал"
-            />
-          </div> */}
+        
         </div>
-        <div className={left}></div>
+       
       </div>
     </div>
   );

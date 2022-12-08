@@ -7,7 +7,8 @@ import Box from "@mui/material/Box";
 
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { makeStyles,Typography,} from '@material-ui/core';
+import Typography  from '@mui/material/Typography';
+import { makeStyles } from '@mui/styles';
 const theme = createTheme();
 const useStyles = makeStyles(() => ({
   about_section: {

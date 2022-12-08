@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import dotenv from 'dotenv';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@mui/styles';
 import { useDispatch } from 'react-redux';
 import './App.css';
 
@@ -10,7 +10,7 @@ import Navbar from './components/reusables/Navbar';
 import Footer from './components/reusables/Footer';
 import { getAllMeals } from './store/actions/productActions';
 import useOnline from './hooks/useOnline.js';
-
+import './App.css'
 import Routes from './routes';
 
 function App() {
@@ -26,7 +26,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <ScrollToTop />
-      <Navbar />
+      <Navbar style={{
+        background:'white'
+      }} />
       <Routes />
       <Footer />
     </ThemeProvider>

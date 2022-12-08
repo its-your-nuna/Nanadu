@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
-import { Typography, makeStyles } from '@material-ui/core';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Typography, Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import Testimonial from './Testimonial';
-import testimonialdata from '../../utils/testimonialdata';
+
 import menudata from '../../utils/menudata';
 import Homemenuitem from './Homemenuitem'
 import '../../App.css'

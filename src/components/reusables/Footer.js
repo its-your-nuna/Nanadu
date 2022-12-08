@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Box,styled,List, Typography, makeStyles, Paper} from '@material-ui/core';
+import { Box,styled,List, Typography,Paper} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { FcPodiumWithAudience } from 'react-icons/fc';
 import { NavLink } from 'react-router-dom';
-import { Instagram, WhatsApp } from '@material-ui/icons';
 import { IconBrandGmail, IconBrandInstagram, IconBrandWhatsapp } from '@tabler/icons';
 
 const links = [

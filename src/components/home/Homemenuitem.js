@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, makeStyles, Button } from '@material-ui/core';
-
+import { Typography, Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme) => ({
   home_menu_item: {
     border: '1px solid #F2F2F2',

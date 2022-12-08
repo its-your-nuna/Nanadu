@@ -1,8 +1,7 @@
 import React from 'react';
-import {makeStyles,Button, Paper } from '@material-ui/core';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import {Button, Paper } from '@mui/material';
 import { IconBowl, IconCup, IconPaperBag, IconSalad, IconSoup } from '@tabler/icons';
-
+import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme) => ({
   button: {
     borderRadius: '20px',

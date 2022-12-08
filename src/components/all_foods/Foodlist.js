@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  makeStyles,
+  
   Typography,
   Dialog,
   DialogContent,
@@ -10,11 +10,12 @@ import {
   useMediaQuery,
   useTheme,
   Button,
-} from '@material-ui/core';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { Link as NavLink } from 'react-router-dom';
-import SearchIcon from '@material-ui/icons/Search';
-import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
+import SearchIcon from '@mui/icons-material/Search';
+import CancelOutlinedIcon from '@@mui/icons-material/CancelOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 
 import SingleFoodItem from './SingleFoodItem';
