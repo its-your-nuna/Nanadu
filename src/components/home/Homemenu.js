@@ -101,16 +101,20 @@ export default function Homemenu() {
     <div className={homemenu}>
       <div className={homemenu_explore}>
       
-        <Typography className={leaderBoard_left_h1} variant="h2" component="h1">
+        <Typography sx={{
+           leaderBoard_left_h1: {
+            lineHeight: '40px',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '4rem',
+            fontWeight: 'bold',
+            marginTop: '17px',
+            textAlign: 'center',
+            marginBottom: '20px',
+          },
+        }} variant="h2" component="h1">
           Наши лучшие блюда
         </Typography>
       </div>
-
-      {/* <div className={homemenu_data}>
-        {menudata.map((data, index) => (
-          <Homemenuitem key={index} {...data} />
-        ))}
-      </div> */}
        <div style={{ display: 'flex' }}>
         <div className={testimonial_control}>
           <ArrowBackIosIcon

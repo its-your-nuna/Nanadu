@@ -114,23 +114,56 @@ export default function Homemenuitem({
       <div className={hmi_img_div}>
         <img className={hmi_img} src={image_path} />
       </div>
-      <Typography  className={hmi_food_title} variant="h2" component="h1">
+      <Typography  sx={{
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '.9rem',
+        fontWeight: 'bold',
+        marginTop: '15px',
+      }} variant="h2" component="h1">
         {title}
       </Typography>
-      <Typography className={hmi_food_subtitle} variant="h2" component="h1">
+      <Typography sx={{
+         fontFamily: 'Inter, sans-serif',
+         fontSize: '.7rem',
+         fontWeight: 'bold',
+         marginTop: '2px',
+      }} variant="h2" component="h1">
         {sub_title}
       </Typography>
-      <Typography className={hmi_food_colories} variant="h2" component="h1">
+      <Typography sx={{
+         fontFamily: 'Inter, sans-serif',
+         fontSize: '.7rem',
+         fontWeight: 'bold',
+         color: 'black',
+         marginTop: '4px',
+      }} variant="h2" component="h1">
         {colories}
       </Typography>
       <div className={lower_div}>
-        <Typography className={hmi_food_price} variant="h2" component="h1">
+        <Typography sx={{
+           fontFamily: 'Inter, sans-serif',
+           fontSize: '.9rem',
+           fontWeight: 'bold',
+        }} variant="h2" component="h1">
           {price}
         </Typography>
         <Button
           disableElevation={true}
           
-          className={cart_button}
+          sx={{
+            textTransform: 'lowercase',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '.7rem',
+            fontWeight: 'bold',
+            borderRadius: '7px',
+            height: '30px',
+            backgroundColor:'#f93b1d',
+            color:'white',
+            '@media (max-width: 900px)': {
+              marginTop: '2px',
+              height: '20px',
+            },
+          }}
         >
           New
         </Button>

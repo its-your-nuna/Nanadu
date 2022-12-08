@@ -86,7 +86,17 @@ export default function Testimonialsection() {
   return (
     <div className={testimonial_section}>
       <div className={homemenu_explore}>
-        <Typography className={leaderBoard_left_h1} variant="h2" component="h1">
+        <Typography sx={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          marginTop: '50px',
+          textAlign: 'center',
+          color:'#202794',
+          '@media (max-width: 500px)': {
+            fontSize: '2.5rem',
+          },
+        }} variant="h2" component="h1">
           Наши лучшие блюда
         </Typography>
       </div>
