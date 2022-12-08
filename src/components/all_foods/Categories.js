@@ -51,7 +51,25 @@ const Categories = ({categories,filterItems}) => {
       return <Button 
         type='button' 
         disableElevation
-        className={button}
+        sx={{
+          borderRadius: '20px',
+          fontWeight: 'bold',
+          width: '170px',
+          marginTop: '25px',
+          marginLeft: '25px',
+          fontSize: '1.2rem',
+          textTransform: 'lowercase',
+          background: 'white',
+          border: '1px solid grey',
+          '&:hover': {
+            background: 'white',
+            color:'#202794'
+          },
+          '@media (max-width: 500px)': {
+            width: '100px',
+            marginLeft: '10px',
+          },
+        }}
         startIcon={icon[index]}
         key={index}
         onClick={() => filterItems(category)}

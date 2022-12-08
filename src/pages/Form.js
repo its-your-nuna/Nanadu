@@ -62,7 +62,15 @@ export default function SignIn() {
             alignItems: "center"
           }}
         >
-           <Typography className={about_descriptions} component="p">
+           <Typography sx={{fontFamily: 'Inter, sans-serif',
+    fontSize: '2.5rem',
+    fontWeight: 'bold',
+    
+    textAlign: 'center',
+    color:'#202794',
+    '@media (max-width: 500px)': {
+      fontSize: '2.5rem',
+    },}} component="p">
             Личные данные
           </Typography>
           <Box
@@ -158,7 +166,15 @@ export default function SignIn() {
             alignItems: "center"
           }}
         >
-           <Typography className={about_descriptions} component="p">
+           <Typography sx={{fontFamily: 'Inter, sans-serif',
+    fontSize: '2.5rem',
+    fontWeight: 'bold',
+    
+    textAlign: 'center',
+    color:'#202794',
+    '@media (max-width: 500px)': {
+      fontSize: '2.5rem',
+    },}} component="p">
            Образование и профессиональный опыт
           </Typography>
           <Box
@@ -243,7 +259,17 @@ export default function SignIn() {
            
           }}
         >
-           <Typography className={about_descriptions} component="p">
+           <Typography sx={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            
+            textAlign: 'center',
+            color:'#202794',
+            '@media (max-width: 500px)': {
+              fontSize: '2.5rem',
+            },
+           }} component="p">
             О франшизе
           </Typography>
           <Box

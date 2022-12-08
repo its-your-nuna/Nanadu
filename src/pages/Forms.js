@@ -188,8 +188,29 @@ function AboutSection() {
           <div className={about_section}>
         <img className={about_image}  src='form1.png'/>
         <div>  
-        <Typography className={leaderBoard_left_h1}>СОТРУДНИЧЕСТВО </Typography>        
-        <Typography className={about_descriptions}  style = {{marginLeft:'50px'}} component="p">
+        <Typography sx={{ fontFamily: 'Inter, sans-serif',
+    fontSize: '3rem',
+    fontWeight: 'bold',
+    marginTop: '50px',
+    textAlign: 'center',
+    color:'#202794',
+    '@media (max-width: 500px)': {
+      fontSize: '2.5rem',
+    },}}>СОТРУДНИЧЕСТВО </Typography>        
+        <Typography sx={{
+          margin:'0 auto',
+          fontFamily: 'Inter, sans-serif',
+        
+          fontSize: '2rem',
+          marginTop: '25px',
+          fontWeight: 'bold',
+          '@media (max-width: 900px)': {
+            fontSize: '1.5rem',
+          },
+          '@media (max-width: 500px)': {
+            fontSize: '1.2rem',
+          },
+        }} style = {{marginLeft:'50px'}} component="p">
         Вам интересно сотрудничество с нами?
         <br/>
         Отправьте ваши предложения и мы обязательно рассмотрим ваши предложения!
@@ -198,8 +219,27 @@ function AboutSection() {
         </div>
         <div className={about_section}>
         <div >         
-        <Typography className={leaderBoard_left_h1}> ФРАНШИЗА </Typography>  
-         <Typography className={about_descriptions} style = {{marginRight:'50px'}} component="p">
+        <Typography sx={{ fontFamily: 'Inter, sans-serif',
+    fontSize: '3rem',
+    fontWeight: 'bold',
+    marginTop: '50px',
+    textAlign: 'center',
+    color:'#202794',
+    '@media (max-width: 500px)': {
+      fontSize: '2.5rem',
+    },}}> ФРАНШИЗА </Typography>  
+         <Typography sx= {{margin:'0 auto',
+        fontFamily: 'Inter, sans-serif',
+      
+        fontSize: '2rem',
+        marginTop: '25px',
+        fontWeight: 'bold',
+        '@media (max-width: 900px)': {
+          fontSize: '1.5rem',
+        },
+        '@media (max-width: 500px)': {
+          fontSize: '1.2rem',
+        },}} style = {{marginRight:'50px'}} component="p">
          Наш девиз: ” Зарабатывать не на партнере, а зарабатывать вместе с ним!”
         <br/>
         Мы ищем единомышленников, с которыми вместе будем улучшать наш бизнес!
@@ -207,7 +247,17 @@ function AboutSection() {
         </div>
         <img className={about_image}  src='form2.png'/>
          </div>
-         <Typography className={leaderBoard_left_h1} component="h1">
+         <Typography sx={{
+           fontFamily: 'Inter, sans-serif',
+           fontSize: '3rem',
+           fontWeight: 'bold',
+           marginTop: '50px',
+           textAlign: 'center',
+           color:'#202794',
+           '@media (max-width: 500px)': {
+             fontSize: '2.5rem',
+           },
+         }} component="h1">
          Оставьте заявку
           </Typography>
           <Form/>

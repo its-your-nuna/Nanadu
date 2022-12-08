@@ -169,7 +169,27 @@ export default function LeaderBoard() {
       <div className={leaderBoard}>
         <div className={leaderBoard_left}>
           <hr className={hr}/>
-          <Typography className={leaderBoard_left_p} component="p">
+          <Typography sx={{
+             fontFamily: 'Inter, sans-serif',
+             marginTop: '50px',
+             marginBottom: '50px',
+             
+             fontSize: '2.5rem',
+             fontWeight: 'bold',
+             width:'50vw',
+             margin:'0 auto',
+             '@media (max-width: 1500px)': {
+               fontSize: '2rem',
+               width:'70vw',
+             },
+             '@media (max-width: 900px)': {
+               fontSize: '1.5rem',
+               width:'70vw',
+             },
+             '@media (max-width: 500px)': {
+               width:'100vw',
+             },
+          }} component="p">
           Наша команда прошла нелегкий путь, чтобы добиться определенных результатов и завоевать доверие наших гостей. Были и совсем трудные моменты, но мы справились и готовы радовать наших гостей как в Республике Казахстан, так и в странах СНГ! 
           </Typography>
           <hr className={hr}/>
@@ -197,23 +217,68 @@ function AboutSection() {
           <div className={about_section}>
         <img className={about_image}  src='people1.png'/>
         <div>          
-        <Typography className={about_descriptions}  style = {{marginLeft:'50px'}} component="p">
+        <Typography sx={{margin:'0 auto',
+        fontFamily: 'Inter, sans-serif',
+      
+        fontSize: '2rem',
+        marginTop: '25px',
+        fontWeight: 'bold',
+        '@media (max-width: 900px)': {
+          fontSize: '1.5rem',
+        },
+        '@media (max-width: 500px)': {
+          fontSize: '1.2rem',
+        },}} style = {{marginLeft:'50px'}} component="p">
           Меня зовут Пак Владимир. Я являюсь основателем, идейным вдохновителем и генеральным директором сети «Korean Street Food». Идея зарождения сети появилась из желания познакомить всех желающих с южнокорейской кухней. Чтобы наши посетители, попробовав наши блюда, немного познакомились с культурой Южной Кореи, ощутив ее национальный вкус.
           </Typography>  
         </div>
         </div>
         <div className={about_section}>
         <div >         
-         <Typography className={about_descriptions} style = {{marginRight:'50px'}} component="p">
+         <Typography sx={{
+          margin:'0 auto',
+          fontFamily: 'Inter, sans-serif',
+        
+          fontSize: '2rem',
+          marginTop: '25px',
+          fontWeight: 'bold',
+          '@media (max-width: 900px)': {
+            fontSize: '1.5rem',
+          },
+          '@media (max-width: 500px)': {
+            fontSize: '1.2rem',
+          },
+         }} style = {{marginRight:'50px'}} component="p">
          Наша команда старается идти в ногу со временем, осознавая, что люди предпочитают тратить минимум времени на ожидание приготовления блюд, поэтому сеть «Korean Street Food»-это абсолютно новое направление в сфере быстрого питания. 
           </Typography>  
         </div>
         <img className={about_image}  src='people5.png'/>
          </div>
-         <Typography className={leaderBoard_left_h1} component="h1">
+         <Typography sx={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          marginTop: '50px',
+          textAlign: 'center',
+          color:'#202794',
+          '@media (max-width: 500px)': {
+            fontSize: '2.5rem',
+          },
+         }}component="h1">
          На сегодняшний день
           </Typography>
-          <Typography style={{margin:'0 auto',textAlign:'center'}} className={about_descriptions} component="p">
+          <Typography  style={{margin:'0 auto',textAlign:'center'}} sx = {{margin:'0 auto',
+        fontFamily: 'Inter, sans-serif',
+      
+        fontSize: '2rem',
+        marginTop: '25px',
+        fontWeight: 'bold',
+        '@media (max-width: 900px)': {
+          fontSize: '1.5rem',
+        },
+        '@media (max-width: 500px)': {
+          fontSize: '1.2rem',
+        },}} component="p">
           сеть «Korean Street Food» включает в себя семь филиалов по Республике Казахстан:
           </Typography> 
       <img src='people2.png' className={images} />
