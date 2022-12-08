@@ -151,7 +151,16 @@ export default function Footer() {
     <Paper className={root}>
      
       <Box className={root_right}>
-        <Typography className={leaderBoard_left_h1}
+        <Typography sx={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          marginTop: '50px',
+          color:'black',
+          '@media (max-width: 900px)': {
+            fontSize: '1.5rem',
+          }
+        }}
             >Страницы</Typography>
         <Box display="flex" flexDirection="column">        
         {links.map((link, index) => (
@@ -173,7 +182,16 @@ export default function Footer() {
         </Box>
       </Box>
       <Box className={root_right}>
-        <Typography className={leaderBoard_left_h1}>Наши рестораны</Typography>
+        <Typography sx={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          marginTop: '50px',
+          color:'black',
+          '@media (max-width: 900px)': {
+            fontSize: '1.5rem',
+          },
+        }}>Наши рестораны</Typography>
         <Box display="flex" flexDirection="column">        
         {links2.map((link, index) => (
           <Link
@@ -193,7 +211,16 @@ export default function Footer() {
         </Box>
       </Box>
       <Box className={root_right}>
-        <Typography className={leaderBoard_left_h1}>Наши соц сети</Typography>
+        <Typography sx={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          marginTop: '50px',
+          color:'black',
+          '@media (max-width: 900px)': {
+            fontSize: '1.5rem',
+          },
+        }}>Наши соц сети</Typography>
         <Box display="flex" flexDirection="row" justifyContent="space-between">        
         {links3.map((link, index) => (
           <Link
