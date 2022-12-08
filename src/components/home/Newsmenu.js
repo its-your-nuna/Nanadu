@@ -53,6 +53,7 @@ const useStyles = makeStyles({
     width: '170px',
     marginTop: '25px',
     fontSize: '1.2rem',
+    color:'black',
     textTransform: 'lowercase',
     background: 'white',
     border: '1px solid grey',
@@ -69,7 +70,17 @@ export default function Homemenu() {
     <div className={classes.homemenu}>
       <div className={classes.homemenu_explore}>
         
-        <Typography className={classes.leaderBoard_left_h1} variant="h2" component="h1">
+        <Typography sx={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          marginTop: '50px',
+          textAlign: 'center',
+          color:'#202794',
+          '@media (max-width: 500px)': {
+            fontSize: '2.5rem',
+          },
+        }} variant="h2" component="h1">
           Последние новости
         </Typography>
       </div>
@@ -81,7 +92,22 @@ export default function Homemenu() {
       </div>
       <Button
         disableElevation
-        className={classes.button}
+        sx={{
+          borderRadius: '20px',
+          fontWeight: 'bold',
+          width: '170px',
+          marginTop: '25px',
+          fontSize: '1.2rem',
+          textTransform: 'lowercase',
+          background: 'white',
+          color:'black',
+          border: '1px solid grey',
+          '&:hover': {
+            background: 'white',
+            color:'#202794'
+          },
+        }
+        }
         endIcon={<ArrowRightAltIcon />}
         component={Link}
         to={'/news'}

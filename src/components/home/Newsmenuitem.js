@@ -94,11 +94,29 @@ export default function Homemenuitem({
 }) {
   const classes = useStyles();
   return (
-    <div className={classes.home_menu_item}>
+    <div style={{
+      border: '1px solid #F2F2F2',
+    width: '300px',
+    marginLeft:'20px',
+    borderRadius: '10px',
+    position: 'relative',
+    cursor: 'pointer',
+    // padding: '7px',
+    marginTop: '50px',
+    }}>
       {/* <div className={hmi_img_div}> */}
-        <img className={classes.hmi_img} src={image_path} />
+        <img style={{
+          borderRadius: '10px',
+          height: '200px',
+          width: '300px',
+          overflow:'hidden'
+        }} src={image_path} />
       {/* </div> */}
-      <Typography className={classes.hmi_food_colories} variant="h2" >
+      <Typography sx={{fontFamily: 'Inter, sans-serif',
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    color: 'grey',
+    marginTop: '2px',}} variant="h2" >
         {colories}
       </Typography>
       {/* <Link component={RouterLink} to= '/'  underline='none'
@@ -106,15 +124,30 @@ export default function Homemenuitem({
       {title}
     </Link> */}
 
-      <Typography className={classes.hmi_food_title} component={Link} to={`news/${id}`}>{title}</Typography>
+      <Typography sx={{
+         fontFamily: 'Inter, sans-serif',
+         fontSize: '2rem',
+         fontWeight: 'bold',
+         marginTop: '15px',
+         color:'black',
+         whiteSpace:'nowrap',
+         width:'100px',
+         textOverflow:'ellipsis',
+         '&:hover': {
+          textDecoration:'underline',
+          color:'black'
+         },
+      }} component={Link} to={`news/${id}`}>{title}</Typography>
   
-      <Typography className={classes.hmi_food_subtitle} variant="h2" component="h1">
+      <Typography sx={{
+        fontFamily: 'Inter, sans-serif',
+        color:'grey',
+        fontSize: '1.2rem',
+        marginTop: '2px',
+        fontWeight: 'bold',
+      }}variant="h2" component="h1">
         {sub_title}
       </Typography>
-     
-      <div className={lower_div}>
-        
-      </div>
     </div>
   );
 }
