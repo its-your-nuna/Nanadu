@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Homemenuitem from './Newsmenuitem';
 import menudata from '../../utils/newsdata';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   homemenu: {
     //padding: '50px 0px',
     // paddingBottom: '50px',
@@ -61,34 +61,27 @@ const useStyles = makeStyles((theme) => ({
       color:'#202794'
     },
   },
-}));
+});
 
 export default function Homemenu() {
-  const {
-    leaderBoard_left_h1,
-    homemenu_menu,
-    homemenu_explore,
-    homemenu,
-    button,
-    homemenu_data,
-  } = useStyles();
+  const classes = useStyles();
   return (
-    <div className={homemenu}>
-      <div className={homemenu_explore}>
+    <div className={classes.homemenu}>
+      <div className={classes.homemenu_explore}>
         
-        <Typography className={leaderBoard_left_h1} variant="h2" component="h1">
+        <Typography className={classes.leaderBoard_left_h1} variant="h2" component="h1">
           Последние новости
         </Typography>
       </div>
 
-      <div className={homemenu_data}>
+      <div className={classes.homemenu_data}>
         {menudata.map((data, index) => (
           <Homemenuitem key={index} {...data} />
         ))}
       </div>
       <Button
         disableElevation
-        className={button}
+        className={classes.button}
         endIcon={<ArrowRightAltIcon />}
         component={Link}
         to={'/news'}

@@ -3,7 +3,7 @@ import { Typography, Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   home_menu_item: {
     border: '1px solid #F2F2F2',
     width: '300px',
@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   //   height: '35px',
   //   marginTop: '20px',
   // },
-}));
+});
 const handleClick = ()=>{
   console.log('click!')
 }
@@ -92,23 +92,13 @@ export default function Homemenuitem({
   colories,
   id,
 }) {
-  const {
-    home_menu_item,
-    hmi_img,
-    hmi_img_div,
-    hmi_food_title,
-    hmi_food_subtitle,
-    hmi_food_colories,
-    cart_button,
-    lower_div,
-    hmi_food_price,
-  } = useStyles();
+  const classes = useStyles();
   return (
-    <div className={home_menu_item}>
+    <div className={classes.home_menu_item}>
       {/* <div className={hmi_img_div}> */}
-        <img className={hmi_img} src={image_path} />
+        <img className={classes.hmi_img} src={image_path} />
       {/* </div> */}
-      <Typography className={hmi_food_colories} variant="h2" >
+      <Typography className={classes.hmi_food_colories} variant="h2" >
         {colories}
       </Typography>
       {/* <Link component={RouterLink} to= '/'  underline='none'
@@ -116,9 +106,9 @@ export default function Homemenuitem({
       {title}
     </Link> */}
 
-      <Typography className={hmi_food_title} component={Link} to={`news/${id}`}>{title}</Typography>
+      <Typography className={classes.hmi_food_title} component={Link} to={`news/${id}`}>{title}</Typography>
   
-      <Typography className={hmi_food_subtitle} variant="h2" component="h1">
+      <Typography className={classes.hmi_food_subtitle} variant="h2" component="h1">
         {sub_title}
       </Typography>
      

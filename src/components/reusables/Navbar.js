@@ -265,9 +265,11 @@ export default function Navbar() {
           
           key={index}
           onClick = { ()=>handleClick(index)}
-          sx={{marginLeft:'30px',color:'black','&:hover' : {
+          sx={{marginLeft:'30px',color:'black',
+          '&:hover' : {
             color : 'black'
-        }}}
+        }
+      }}
           {...{   
             key: label,
             to: href,
