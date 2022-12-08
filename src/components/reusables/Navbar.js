@@ -202,13 +202,14 @@ export default function Navbar() {
           <IconButton
             {...{
               edge: 'start',
-              color: 'inherit',
+
+              color: 'black',
               'aria-label': 'menu',
               'aria-haspopup': 'true',
               onClick: handleDrawerOpen,
             }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{fontSize:'24px'}}/>
           </IconButton>
           <Drawer
             {...{
