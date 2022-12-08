@@ -46,6 +46,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },  
   "browserslist": {
     "production": [
       ">0.2%",
