@@ -130,7 +130,7 @@ export default function Sidedrawer(props) {
      
       <Box className={usersection}>
          <CloseRounded
-         onClick={props.onClose} className = {xmark}/>
+         onClick={props.onClose} sx={{fontSize:'24px'}} className = {xmark}/>
          {/* <i class="fa-solid fa-xmark"></i>
           */}
          <img src='nandu.png' width='100px'/>
@@ -153,6 +153,7 @@ export default function Sidedrawer(props) {
       <ListStyle>
         {links.map((link, index) => (
           <Link
+            sx={{color:'black'}}
             key={index}
             className={myStyle[index]?button2:button}
             component={NavLink}

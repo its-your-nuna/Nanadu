@@ -209,7 +209,7 @@ export default function Navbar() {
               onClick: handleDrawerOpen,
             }}
           >
-            <MenuIcon sx={{fontSize:'24px'}}/>
+            <MenuIcon sx={{fontSize:'24px',marginLeft:'20px'}}/>
           </IconButton>
           <Drawer
             {...{
